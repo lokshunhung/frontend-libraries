@@ -3,14 +3,9 @@
     "version": "0.0.1",
     "license": "MIT",
     "private": true,
-    "workspaces": {
-        "packages": [
-            "packages/*"
-        ],
-        "nohoist": [
-            "packages/*"
-        ]
-    },
+    "workspaces": [
+        "packages/*"
+    ],
     "scripts": {
         "canadyarn": "canadyarn"
     },
