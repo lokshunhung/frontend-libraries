@@ -3,7 +3,7 @@
 /** @type {import("eslint").Linter.Config} */
 const config = {
     root: true, // Set root=true to prevent eslint config cascading from workspace root eslint config file
-    ignorePatterns: ["./dist/**"],
+    ignorePatterns: ["dist/**", "tools/templates/**"],
     extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended", "prettier", "prettier/@typescript-eslint"],
     parser: "@typescript-eslint/parser",
     parserOptions: {

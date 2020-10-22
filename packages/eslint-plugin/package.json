@@ -11,13 +11,13 @@
         }
     },
     "scripts": {
-        "build": "node tools build",
-        "check-format": "node tools check-format",
-        "codegen": "node tools codegen",
-        "format": "node tools format",
-        "lint": "node tools lint",
-        "new-rule": "node tools new-rule",
-        "test": "jest --config config/jest.config.js"
+        "build": "yarn node tools build",
+        "check-format": "yarn node tools check-format",
+        "codegen": "yarn node tools codegen",
+        "format": "yarn node tools format",
+        "lint": "yarn node tools lint",
+        "new-rule": "yarn node tools new-rule",
+        "test": "yarn workspace:jest --config config/jest.config.js"
     },
     "dependencies": {
         "@typescript-eslint/experimental-utils": "^4.4.1"

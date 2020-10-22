@@ -14,12 +14,16 @@ export default function build() {
     if (isFastMode) {
         print.info("Fast mode enabled, skipping format checking and testing");
     } else {
+        print.task("Check code style");
         checkFormat();
+
+        print.task("Check lint");
         lint();
-        runCommand(
-            String.raw`yarn run \
-            --cwd="${projectDirectory}" \
-            jest \
+
+        print.task("Run tests");
+        runCommand(projectDirectory)(
+            String.raw`yarn \
+            workspace:jest \
             --config "${configDirectory}/jest.config.js" \
             --runInBand`
         );
@@ -32,9 +36,8 @@ export default function build() {
     }
     {
         print.task("Compiling...");
-        runCommand(
-            String.raw`yarn run \
-            --cwd="${projectDirectory}" \
+        runCommand(projectDirectory)(
+            String.raw`yarn \
             parcel build src/index.ts \
             --no-autoinstall`
         );

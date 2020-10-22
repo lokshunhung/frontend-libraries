@@ -15,11 +15,13 @@ export const createPrint = (descriptiveTitle: string) => ({
     error: curriedPrint("❌")("redBright")(descriptiveTitle),
 });
 
-export function runCommand(command: string) {
-    return childProcess.execSync(command, {
-        stdio: "inherit",
-        encoding: "utf8",
-    });
+export function runCommand(cwd: string) {
+    return (command: string) =>
+        childProcess.execSync(command, {
+            stdio: "inherit",
+            encoding: "utf8",
+            cwd,
+        });
 }
 
 export function isKebabCase(string: string) {

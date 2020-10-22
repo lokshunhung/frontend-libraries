@@ -1,16 +1,14 @@
 import {pathMap} from "../config/path-map";
 import {runCommand} from "./util";
 
-const {workspaceRootDirectory, projectDirectory} = pathMap;
+const {projectDirectory} = pathMap;
 
 export default function lint() {
-    runCommand(
-        String.raw`yarn run \
-        --cwd="${workspaceRootDirectory}" \
-        eslint \
-        --config "${projectDirectory}/.eslintrc.js" \
-        --ignore-path "${workspaceRootDirectory}/.eslintignore" \
+    runCommand(projectDirectory)(
+        String.raw`yarn \
+        workspace:eslint \
+        --config .eslintrc.js \
         --ext .js,.jsx,.ts,.tsx \
-        "${projectDirectory}"`
+        .`
     );
 }
