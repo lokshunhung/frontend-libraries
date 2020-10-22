@@ -17,6 +17,7 @@
 !.yarn/sdks
 !.yarn/versions
 .pnp.*
+.yarnrc*
 
 # Coverage Reports
 **/coverage/**
