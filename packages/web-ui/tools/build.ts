@@ -6,7 +6,7 @@ import checkFormat from "./check-format";
 import lint from "./lint";
 import {createPrint, runCommand} from "./util";
 
-const {projectDirectory, srcDirectory, distDirectory, configDirectory, srcTsconfigFile} = pathMap;
+const {projectDirectory, srcDirectory, distDirectory} = pathMap;
 
 const print = createPrint("build");
 
@@ -22,10 +22,9 @@ export default function build() {
         lint();
 
         print.task("Run unit tests");
-        runCommand(
-            String.raw`yarn run \
-            --cwd="${projectDirectory}" \
-            jest --config "${configDirectory}/jest.config.js"`
+        runCommand(projectDirectory)(
+            String.raw`yarn \
+            workspace:jest --config config/jest.config.js`
         );
     }
     {
@@ -36,10 +35,9 @@ export default function build() {
     }
     {
         print.task("Compiling...");
-        runCommand(
-            String.raw`yarn run \
-            --cwd="${projectDirectory}" \
-            tsc --project "${srcTsconfigFile}"`
+        runCommand(projectDirectory)(
+            String.raw`yarn \
+            workspace:tsc --project tsconfig.json`
         );
     }
     {

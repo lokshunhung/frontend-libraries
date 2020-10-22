@@ -12,12 +12,12 @@
         "url": "https://github.com/pinnacle0/pinnacle-frontend-web-ui"
     },
     "scripts": {
-        "test-e2e": "node tools test-e2e",
-        "build": "node tools build",
-        "start": "node tools start",
-        "lint": "node tools lint",
-        "format": "node tools format",
-        "test": "jest --config config/jest.config.js"
+        "test-e2e": "yarn node tools test-e2e",
+        "build": "yarn node tools build",
+        "start": "yarn node tools start",
+        "lint": "yarn node tools lint",
+        "format": "yarn node tools format",
+        "test": "yarn workspace:jest --config config/jest.config.js"
     },
     "dependencies": {
         "@ant-design/icons": "4.2.2",
