@@ -21,11 +21,10 @@ export default function build() {
         lint();
 
         print.task("Run tests");
-        runCommand(
-            String.raw`yarn run \
-            --cwd="${projectDirectory}" \
-            jest \
-            --config "${configDirectory}/jest.config.js" \
+        runCommand(projectDirectory)(
+            String.raw`yarn \
+            workspace:jest \
+            --config config/jest.config.js \
             --coverage \
             --runInBand`
         );
@@ -38,10 +37,9 @@ export default function build() {
     }
     {
         print.task("Compiling...");
-        runCommand(
-            String.raw`yarn run \
-            --cwd="${projectDirectory}" \
-            tsc --build "${projectDirectory}/tsconfig.json"`
+        runCommand(projectDirectory)(
+            String.raw`yarn \
+            workspace:tsc --build tsconfig.json`
         );
     }
     {

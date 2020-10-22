@@ -6,10 +6,10 @@
     "main": "cjs/index.js",
     "module": "esm/index.js",
     "scripts": {
-        "build": "node tools build",
-        "format": "node tools format",
-        "lint": "node tools lint",
-        "test": "jest --config config/jest.config.js --coverage --runInBand"
+        "build": "yarn node tools build",
+        "format": "yarn node tools format",
+        "lint": "yarn node tools lint",
+        "test": "yarn workspace:jest --config config/jest.config.js --coverage --runInBand"
     },
     "dependencies": {},
     "peerDependencies": {},
