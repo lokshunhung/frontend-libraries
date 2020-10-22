@@ -4,8 +4,8 @@
     "license": "MIT",
     "main": "./dist/index.js",
     "scripts": {
-        "build": "node tools build",
-        "format": "node tools format"
+        "build": "yarn node tools build",
+        "format": "yarn node tools format"
     },
     "dependencies": {
         "autoprefixer": "9.8.6",
