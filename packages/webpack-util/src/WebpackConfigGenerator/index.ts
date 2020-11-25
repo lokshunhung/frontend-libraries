@@ -127,7 +127,7 @@ export class WebpackConfigGenerator {
             },
             module: {
                 rules: [
-                    Rule.ts({
+                    Rule.tsForDevelopment({
                         tsconfigFilepath: this.tsconfigFilepath,
                     }),
                     Rule.stylesheet({
@@ -144,6 +144,7 @@ export class WebpackConfigGenerator {
                 Plugin.webpack.progress({
                     enableProfiling: false,
                 }),
+                Plugin.reactFastRefresh(),
             ],
         };
     }
