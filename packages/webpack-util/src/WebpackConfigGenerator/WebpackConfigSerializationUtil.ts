@@ -47,16 +47,17 @@ export class WebpackConfigSerializationUtil {
             ],
         });
         try {
+            const VALID_JS_PRETTIER_HACK = "module.exports = ";
             // eslint-disable-next-line @typescript-eslint/no-var-requires -- prettier might not be installed (no peerDeps constraint)
             const {format} = require("prettier") as typeof import("prettier");
-            return format("module.exports = " + configString, {
+            return format(VALID_JS_PRETTIER_HACK + configString, {
                 arrowParens: "avoid",
                 bracketSpacing: false,
                 printWidth: 120,
                 tabWidth: 1,
                 useTabs: false,
                 filepath: "webpack.config.js",
-            });
+            }).replace(VALID_JS_PRETTIER_HACK, "");
         } catch {
             // Either prettier cannot be loaded, or formatting failed, return the unformatted config as a fallback.
             return configString;
