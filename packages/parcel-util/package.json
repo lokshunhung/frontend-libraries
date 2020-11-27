@@ -3,6 +3,9 @@
     "version": "0.0.1",
     "license": "MIT",
     "dependencies": {
-        "@parcel/core": "2.0.0-beta.1"
+        "@parcel/core": "2.0.0-beta.1",
+        "@parcel/fs": "2.0.0-beta.1",
+        "@parcel/package-manager": "2.0.0-beta.1",
+        "@parcel/types": "2.0.0-beta.1"
     }
 }
