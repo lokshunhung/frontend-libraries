@@ -3,6 +3,8 @@ declare module "@parcel/core" {
         constructor(options: object);
 
         watch(cb?: (err?: Error | null | undefined, buildEvent?: any) => any): Promise<import("@parcel/types").AsyncSubscription>;
+
+        run(): Promise<any>;
     }
 }
 
